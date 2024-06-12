@@ -23,13 +23,22 @@ const Form2 = () => {
   const { values, handleChange, handleSubmit, errors } = useForm(initialState, validate);
 
   return (
+   
     <form onSubmit={handleSubmit}>
-      <input type="text" name="username" value={values.username} onChange={handleChange} />
+      <div>
+         <label className="form-label">Nome</label>
+      <input type="text" className="form-control" name='username' value={values.username} onChange={handleChange} />
       {errors.username && <span>{errors.username}</span>}
-      <input type="password" name="password" value={values.password} onChange={handleChange} />
+      </div>
+      <div>
+      <label className="form-label">Senha</label>
+         <input type="password" className='form-control' name="password" value={values.password} onChange={handleChange} />
       {errors.password && <span>{errors.password}</span>}
-      <button type="submit">Enviar</button>
+      </div>
+     
+      <button className='btn btn-secondary' type="submit">Enviar</button>
     </form>
+  
   );
 };
 
