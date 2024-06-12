@@ -2,5 +2,7 @@
 # Criar um Hook para formulários que deverá funcionar em dois formulários diferentes, cada um com sua regra de negócio como campos obrigatórios, textos de erro e validações.
 ## Atenção na performance do seu Hook, não deixe-o afetar a performance da sua aplicação.
 
-Abrir terminal com o comando (npx create-react-app 'nome do projeto')
+### Abrir terminal com o comando (npx create-react-app 'nome do projeto')
+### Criar components (Form1.js),(Form2.js)
+### Criar uma função (useForm.js)-Hook
 
