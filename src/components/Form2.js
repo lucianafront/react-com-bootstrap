@@ -1,5 +1,7 @@
 import React from 'react';
 import useForm from './useForm';
+import { ArrowDownUp, Trash } from 'react-bootstrap-icons';
+
 
 
 
@@ -20,10 +22,10 @@ const Form2 = () => {
     return errors;
   };
 
-  const { values, handleChange, handleSubmit, errors } = useForm(initialState, validate);
+  const { values,resultados, handleChange, handleSubmit, handleOrder, handleDelete, errors } = useForm(initialState, validate);
 
   return (
-   
+   <>
     <form onSubmit={handleSubmit}>
       <div>
          <label className="form-label">Nome</label>
@@ -38,6 +40,30 @@ const Form2 = () => {
      
       <button className='btn btn-secondary' type="submit">Enviar</button>
     </form>
+
+{resultados.length > 0 && (
+  <div>
+    <h2>Resultados</h2>
+    <table className='table'>
+      <thead>
+        <tr>
+          <th>UserName <button className='btn' onClick={() => handleOrder('username')}><ArrowDownUp className='' /></button></th>
+          <th>Password<button className='btn' onClick={() => handleOrder('password')}><ArrowDownUp /></button></th>
+        </tr>
+      </thead>
+      <tbody>
+        {resultados.map((item, index) => (
+          <tr key={index}>
+            <td>{item.username}</td>
+            <td>{item.password}</td>
+            <td><button className='btn btn-danger' onClick={() => handleDelete(index)}><Trash/></button></td>
+          </tr>
+        ))}
+      </tbody>
+    </table>
+  </div>
+)}
+</>
   
   );
 };
